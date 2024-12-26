@@ -3,10 +3,10 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.2.2</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<groupId>org.springframework.boot</groupId>		<!-- Nhóm định danh: tất cả những khối có chung nhóm định danh sẽ được khối này quản lý-->
+		<artifactId>spring-boot-starter-parent</artifactId>		<!--Tên -->
+		<version>3.2.2</version>	<!-- Phiên bản-->
+		<relativePath/> <!-- lookup parent from repository -->	<!-- đường dẫn tới parent-->
 	</parent>
 	<groupId>vn.hoidanit</groupId>
 	<artifactId>laptopshop</artifactId>
@@ -22,7 +22,7 @@
     		<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
+			<groupId>org.springframework.boot</groupId>	
 			<artifactId>spring-boot-starter</artifactId>
 		</dependency>
 
@@ -49,6 +49,15 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>8.0.33</version>
 		</dependency>
+
+		<!-- For Spring Security-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+			<!-- do có cùng nhóm định danh với parent nên version của spring security sẽ được xác định dựa trên phiên bản của khối cha-->
+		</dependency>
+
+
 
 	</dependencies>
 
