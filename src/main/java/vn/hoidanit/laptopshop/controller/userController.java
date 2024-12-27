@@ -11,10 +11,16 @@ import vn.hoidanit.laptopshop.service.UserService;
 
 @Controller
 public class userController { // Model MVC code
-    @RequestMapping("/")
-    public String getHomePage() {
+    private UserService userService;
 
-        return "fangg";
+    public userController(UserService userService) {
+        this.userService = userService;
+    }
+
+    @RequestMapping("/gayy") // Sufiex of your url
+    public String getHomePage() {
+        String test = this.userService.handleHello(); // static data is unusable in this case
+        return "fangg.html";
     }
 }
 
