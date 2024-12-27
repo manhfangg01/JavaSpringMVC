@@ -24,6 +24,8 @@ public class userController { // Model MVC code
     public String getHomePage(Model model) {
         String test = this.userService.handleHello(); // static data is unusable in this case
         model.addAttribute("eric", test);
+        model.addAttribute("hoidanit", "from controller with model");
+
         return "hello"; // file trả về sẽ là thứ được hiện lên khi hàm này chạy -> cần dùng String
     }
 }
