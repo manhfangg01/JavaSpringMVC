@@ -28,6 +28,12 @@ public class userController { // Model MVC code
 
         return "hello"; // file trả về sẽ là thứ được hiện lên khi hàm này chạy -> cần dùng String
     }
+
+
+    @RequestMapping("/admin")
+    public String adminCheck(Model model){
+        return "helloAdmin";
+    }
 }
 
 // @RestController // Model Restful API
