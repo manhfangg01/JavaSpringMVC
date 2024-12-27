@@ -1,4 +1,5 @@
 package vn.hoidanit.laptopshop.controller;
+
 // this file is the primary part of Model MVC spring: main function is charge
 
 // for redirecting your website
@@ -22,18 +23,17 @@ public class userController { // Model MVC code
     @RequestMapping("/") // Sufiex of your ur Ex: localhost:8080/gayy to access resource in
                          // localhost:8080
     public String getHomePage(Model model) {
-        String test = this.userService.handleHello(); // static data is unusable in this case
-        model.addAttribute("eric", test);
-        model.addAttribute("hoidanit", "from controller with model");
-
-        return "hello"; // file trả về sẽ là thứ được hiện lên khi hàm này chạy -> cần dùng String
-    }
-
-
-    @RequestMapping("/admin")
-    public String adminCheck(Model model){
+        model.addAttribute(null, model)
         return "helloAdmin";
     }
+
+
+    @RequestMapping("/admin/user")
+    public String adminCheck(Model model){
+        
+        return "admin/user/create";
+    }
+   
 }
 
 // @RestController // Model Restful API
