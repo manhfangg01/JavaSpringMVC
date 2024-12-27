@@ -7,5 +7,6 @@
   </head>
   <body>
     JSP pleased to meet you Manh
+    <h1><%= ${eric}%></h1>
   </body>
 </html>
