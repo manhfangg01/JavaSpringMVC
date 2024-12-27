@@ -64,6 +64,22 @@
 			<!-- do có cùng nhóm định danh với parent nên version của spring security sẽ được xác định dựa trên phiên bản của khối cha-->
 		</dependency>
 
+		<!-- #48 setup for JSP (view Engine)-->
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-jasper</artifactId>			<!-- read file JSP-->
+		</dependency>		<!-- cache save -->
+
+		<dependency>
+			<groupId>jakarta.servlet.jsp.jstl</groupId>
+			<artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.glassfish.web</groupId>
+			<artifactId>jakarta.servlet.jsp.jstl</artifactId>
+		</dependency>
+
 
 
 	</dependencies>

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import vn.hoidanit.laptopshop.service.UserService;
+import vn.hoidanit.laptopshop.controller.*;
 
 @Controller
 public class userController { // Model MVC code
@@ -17,10 +18,11 @@ public class userController { // Model MVC code
         this.userService = userService;
     }
 
-    @RequestMapping("/gayy") // Sufiex of your url
+    @RequestMapping("/") // Sufiex of your ur Ex: localhost:8080/gayy to access resource in
+                         // localhost:8080
     public String getHomePage() {
         String test = this.userService.handleHello(); // static data is unusable in this case
-        return "fangg.html";
+        return "hello"; // file trả về sẽ là thứ được hiện lên khi hàm này chạy -> cần dùng String
     }
 }
 
