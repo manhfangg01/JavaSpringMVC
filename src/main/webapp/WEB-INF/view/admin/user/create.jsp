@@ -27,7 +27,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
           <h3>Create a user</h3>
           <hr />
           <form:form
-            action="/admin/user/create1"
+            action="/admin/user/create"
             method="post"
             modelAttribute="newUser"
           >

@@ -4,6 +4,7 @@ package vn.hoidanit.laptopshop.controller;
 import vn.hoidanit.laptopshop.domain.User;
 import vn.hoidanit.laptopshop.repository.UserRepository;
 
+import java.util.List;
 import java.util.Scanner;
 
 // for redirecting your website
@@ -40,37 +41,47 @@ public class userController { // Model MVC code
     // model.addAttribute("newUser", new User());
     // return "admin/user/create";
     // }
-    @RequestMapping("/admin/user/create") // Để mặc định thì thì là method GET
-    public String adminCheck(Model model) {
-        model.addAttribute("newUser", new User());
-        return "admin/user/create";
-    }
 
     @RequestMapping("/admin/user") // Để mặc định thì thì là method GET
-    public String showTableUser(Model model) {
+    public String getUserPage(Model model) {
+        List<User> users = this.userService.getAllUser();
+        model.addAttribute("users1", users);
+        System.out.println(">>> check: " + users);
         return "admin/user/create2";
+    }
+
+    @RequestMapping("/admin/user/create") // Để mặc định thì thì là method GET
+    public String getCreateUserPage(Model model) {
+        model.addAttribute("newUser", new User());
+        return "admin/user/create";
     }
 
     @RequestMapping(value = "/admin/user/create", method = RequestMethod.POST) // Cú pháp để tạo method POST
     public String createUserPage(Model model, @ModelAttribute("newUser") User hoidanit) {
         System.out.println("user created" + hoidanit);
         this.userService.handleSaveUser(hoidanit);
-        System.out.println("All the User in your management system: \n");
-        this.userService.getAllUser().forEach(user -> System.err.println(user));
-        Scanner sc = new Scanner(System.in);
-        String findingEmail = sc.nextLine();
-        System.out.println("All the User in your management system has email: " + findingEmail + ": \n");
-        this.userService.getAllUserByEmail(findingEmail + "@gmail.com").forEach(user -> System.out.println(user));
-        System.out.println("\nEnter the fullname: ");
-        String fullName = sc.nextLine();
-        System.out.println("\nEnter the address: ");
-        String address = sc.nextLine();
-        System.out.println("\nAll the User in your management system has fullName: " + fullName + " and address: "
-                + address + ": \n");
-        this.userService.getAllUserByFullNameAndAddress(fullName, address).forEach(user -> System.out.println(user));
+        // System.out.println("All the User in your management system: \n");
+        // this.userService.getAllUser().forEach(user -> System.err.println(user));
+        // Scanner sc = new Scanner(System.in);
+        // String findingEmail = sc.nextLine();
+        // System.out.println("All the User in your management system has email: " +
+        // findingEmail + ": \n");
+        // this.userService.getAllUserByEmail(findingEmail + "@gmail.com").forEach(user
+        // -> System.out.println(user));
+        // System.out.println("\nEnter the fullname: ");
+        // String fullName = sc.nextLine();
+        // System.out.println("\nEnter the address: ");
+        // String address = sc.nextLine();
+        // System.out.println("\nAll the User in your management system has fullName: "
+        // + fullName + " and address: "
+        // + address + ": \n");
+        // this.userService.getAllUserByFullNameAndAddress(fullName,
+        // address).forEach(user -> System.out.println(user));
 
-        sc.close();
-        return "hello";
+        // sc.close();
+
+        return "redirect:/admin/user"; // redirect + URL(/admin/user) -> mapping to to /admin/user while the function
+                                       // "getUserPage" which is requesting to admin/user/create2(tableUser)
     }
 
 }

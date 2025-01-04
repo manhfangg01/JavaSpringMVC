@@ -36,16 +36,13 @@ public class User {
     public User() {
     }
 
-    public User(String email, String password, String fullName, String address, String phoneNumber) {
+    public User(long id, String email, String password, String fullName, String address, String phoneNumber) {
+        this.id = id;
         this.email = email;
         this.password = password;
         this.fullName = fullName;
         this.address = address;
         this.phoneNumber = phoneNumber;
-    }
-
-    public long getID() {
-        return id;
     }
 
     public String getEmail() {
@@ -96,6 +93,10 @@ public class User {
     public String toString() {
         return "User [email=" + email + ", password=" + password + ", fullName=" + fullName + ", address=" + address
                 + ", phoneNumber=" + phoneNumber + "]";
+    }
+
+    public long getId() {
+        return id;
     }
 
 }

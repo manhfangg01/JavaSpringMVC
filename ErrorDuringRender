@@ -1,1 +1,4 @@
 1. status=404: trang không tồn tại do không có sever kết nối hoặc code chưa được up lên
+2. No endpoint POST:
+    B1: Kiểm tra lại value POST trong Controller
+    B2: Kiểm tra lại class "action" trong form xem có gửi data đi đúng địa chỉ không

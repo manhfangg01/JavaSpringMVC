@@ -1,3 +1,6 @@
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%> <%@
+page contentType="text/html" pageEncoding="UTF-8" %> <%@ taglib prefix="c"
+uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -47,7 +50,7 @@
               <th>Full Name</th>
               <th>Action</th>
             </tr>
-            <tr>
+            <!-- <tr>
               <th>1</th>
               <td>Mark</td>
               <td>Otto</td>
@@ -66,7 +69,19 @@
                 <a href="#" class="btn btn-warning">Update</a>
                 <a href="#" class="btn btn-danger">Delete</a>
               </td>
-            </tr>
+            </tr> -->
+            <c:forEach var="user" items="${users1}">
+              <tr>
+                <th>${user.id}</th>
+                <td>${user.email}</td>
+                <td>${user.fullName}</td>
+                <td>
+                  <a href="#" class="btn btn-success">View</a>
+                  <a href="#" class="btn btn-warning">Update</a>
+                  <a href="#" class="btn btn-danger">Delete</a>
+                </td>
+              </tr>
+            </c:forEach>
           </table>
         </div>
       </div>
