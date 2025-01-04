@@ -35,13 +35,23 @@ public class userController { // Model MVC code
         return "hello"; // file trả về sẽ là thứ được hiện lên khi hàm này chạy -> cần dùng String
     }
 
-    @RequestMapping("/admin/user") // Để mặc định thì thì là method GET
+    // @RequestMapping("/admin/user") // Để mặc định thì thì là method GET
+    // public String adminCheck(Model model) {
+    // model.addAttribute("newUser", new User());
+    // return "admin/user/create";
+    // }
+    @RequestMapping("/admin/user/create") // Để mặc định thì thì là method GET
     public String adminCheck(Model model) {
         model.addAttribute("newUser", new User());
         return "admin/user/create";
     }
 
-    @RequestMapping(value = "/admin/user/create1", method = RequestMethod.POST) // Cú pháp để tạo method POST
+    @RequestMapping("/admin/user") // Để mặc định thì thì là method GET
+    public String showTableUser(Model model) {
+        return "admin/user/create2";
+    }
+
+    @RequestMapping(value = "/admin/user/create", method = RequestMethod.POST) // Cú pháp để tạo method POST
     public String createUserPage(Model model, @ModelAttribute("newUser") User hoidanit) {
         System.out.println("user created" + hoidanit);
         this.userService.handleSaveUser(hoidanit);
