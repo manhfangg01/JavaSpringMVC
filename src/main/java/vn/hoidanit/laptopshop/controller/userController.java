@@ -2,6 +2,7 @@ package vn.hoidanit.laptopshop.controller;
 // this file is the primary part of Model MVC spring: main function is charge
 
 import vn.hoidanit.laptopshop.domain.User;
+import vn.hoidanit.laptopshop.repository.UserRepository;
 
 // for redirecting your website
 
@@ -15,7 +16,7 @@ import vn.hoidanit.laptopshop.service.UserService;
 
 @Controller
 public class userController { // Model MVC code
-    private UserService userService;
+    private final UserService userService;
 
     public userController(UserService userService) {
         this.userService = userService;
@@ -40,6 +41,7 @@ public class userController { // Model MVC code
     @RequestMapping(value = "/admin/user/create1", method = RequestMethod.POST) // Cú pháp để tạo method POST
     public String createUserPage(Model model, @ModelAttribute("newUser") User hoidanit) {
         System.out.println("user created" + hoidanit);
+        this.userService.handleSaveUser(hoidanit);
         return "hello";
     }
 }
