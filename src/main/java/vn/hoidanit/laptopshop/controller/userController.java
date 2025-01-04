@@ -43,18 +43,3 @@ public class userController { // Model MVC code
         return "hello";
     }
 }
-
-// @RestController // Model Restful API
-// public class userController {
-
-// private UserService userService;
-
-// public userController(UserService userService) {
-// this.userService = userService;
-// }
-
-// @GetMapping("")
-// public String getHomePage() {
-// return this.userService.handleHello();
-// }
-// }
