@@ -1,0 +1,13 @@
+Sometime when you submit a POST form to sever the result you receive may go like this 
+    + console:
+        2025-01-07T14:40:19.362+07:00  WARN 20908 --- [nio-8080-exec-3] o.s.web.servlet.PageNotFound             : No mapping for POST /admin/user/update/admin/user/update
+        2025-01-07T14:40:19.368+07:00  WARN 20908 --- [nio-8080-exec-3] o.s.web.servlet.PageNotFound             : No endpoint POST /admin/user/update/admin/user/update.
+    + live sever
+        There was an unexpected error (type=Not Found, status=404).
+        No endpoint POST /admin/user/update/admin/user/update.
+
+
+Cause: you use a relative url for action attribute of form submit
+Solution: use absolute url. Ex: <form:form action="admin/user/update" method="post" modelAttribute="newUser">        
+                            ->> <form:form action="/admin/user/update" method="post" modelAttribute="newUser">
+    add a slash "/"

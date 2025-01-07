@@ -1,25 +1,21 @@
 package vn.hoidanit.laptopshop.repository;
 
-import java.util.List;
-
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import vn.hoidanit.laptopshop.domain.User;
+import java.util.List;
 
-// crud: create, read, update, delete
-// JpaRepository better than CrudRepository because the return value of its function is more flexible for developers
+//crud: create, read, update, delete
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
-    User save(User hoidanit);
+    User save(User eric);
 
-    List<User> findByEmail(String email);
+    List<User> findOneByEmail(String email);
 
-    List<User> findByFullNameAndAddress(String fullName, String address);
+    List<User> findAll();
 
-    User findById(long id);
+    User findById(long id); // null
 }
-
 // In theory, there is no difference between findAllBy and findOneBy and findBy
 // in the function name
 // But in practice, there is a difference between them and that's their return

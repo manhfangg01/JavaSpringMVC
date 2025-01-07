@@ -2,7 +2,6 @@ package vn.hoidanit.laptopshop.service;
 
 import java.util.List;
 
-import org.hibernate.sql.results.spi.ListResultsConsumer;
 import org.springframework.stereotype.Service;
 
 import vn.hoidanit.laptopshop.domain.User;
@@ -16,33 +15,21 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public String handleHello() {
-        return "Fangg hello everybody";
-    }
-
-    public User handleSaveUser(User user) {
-        User savedUser = this.userRepository.save(user);
-        System.out.println("UserService response that: " + savedUser);
-        return savedUser;
-    }
-
-    public void getAllUser2() {
-        this.userRepository.findAll().forEach(user -> System.out.println(user));
-    }
-
-    public List<User> getAllUser() {
+    public List<User> getAllUsers() {
         return this.userRepository.findAll();
     }
 
-    public List<User> getAllUserByEmail(String email) {
-        return this.userRepository.findByEmail(email);
+    public List<User> getAllUsersByEmail(String email) {
+        return this.userRepository.findOneByEmail(email);
     }
 
-    public List<User> getAllUserByFullNameAndAddress(String fullName, String address) {
-        return this.userRepository.findByFullNameAndAddress(fullName, address);
+    public User handleSaveUser(User user) {
+        User eric = this.userRepository.save(user); // Hàm save được dùng cho cả khi cập nhật và tạo mới
+        System.out.println(eric);
+        return eric;
     }
 
-    public User findById(long id) {
+    public User getUserById(long id) {
         return this.userRepository.findById(id);
     }
 

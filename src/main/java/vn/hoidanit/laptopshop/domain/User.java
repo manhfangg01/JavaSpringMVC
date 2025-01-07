@@ -65,7 +65,7 @@ public class User {
         return phoneNumber;
     }
 
-    public void setID(long id) {
+    public void setId(long id) {
         this.id = id;
     }
 

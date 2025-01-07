@@ -23,19 +23,17 @@ uri="http://java.sun.com/jsp/jstl/core" %>
           <h3>Update a user</h3>
           <hr />
           <form:form
-            action="admin/user/update"
+            action="/admin/user/update"
             method="post"
             modelAttribute="newUser"
           >
-            <div class="mt-4">
-              <label for="id" class="form-label">Id:</label>
+            <div class="mt-4" style="display: none">
               <form:input
-                type="number"
+                type="text"
                 name="id"
-                value=""
                 path="id"
                 class="form-control"
-                placeholder="Nhập vào id người dùng bạn muốn chỉnh sửa"
+                readonly="true"
               />
             </div>
             <div class="mt-4">
@@ -47,13 +45,14 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                 path="email"
                 class="form-control"
                 placeholder="email"
+                disabled="true"
               />
             </div>
 
             <div class="mt-4">
               <label for="Phone Number" class="form-label">Phone Number:</label>
-              <input
-                type="number"
+              <form:input
+                type="text"
                 name="Phone Number"
                 value=""
                 path="phoneNumber"

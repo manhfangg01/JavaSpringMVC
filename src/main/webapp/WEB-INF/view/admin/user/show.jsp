@@ -97,6 +97,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
         .getElementById("togglePassword")
         .addEventListener("click", function () {
           const passwordSpan = document.getElementById("password");
+
           if (passwordSpan.textContent === "*****") {
             passwordSpan.textContent = "${user.password}";
             this.classList.remove("bi-eye");

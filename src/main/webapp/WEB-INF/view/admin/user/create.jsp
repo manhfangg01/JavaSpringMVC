@@ -54,7 +54,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
             <div class="mt-4">
               <label for="Phonenumber" class="form-label">Phonenumber: </label>
               <form:input
-                type="number"
+                type="text"
                 name="Phonenumber"
                 path="phoneNumber"
                 class="form-control"
