@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import vn.hoidanit.laptopshop.service.UserService;
@@ -50,6 +51,13 @@ public class userController { // Model MVC code
         return "admin/user/create2";
     }
 
+    @RequestMapping("/admin/user/{id}") // Để mặc định thì thì là method GET
+    public String getUserDetailPage(Model model, @PathVariable long id) {
+        System.out.println("check path id= " + id);
+        model.addAttribute("user", this.userService.findById(id));
+        return "admin/user/show";
+    }
+
     @RequestMapping("/admin/user/create") // Để mặc định thì thì là method GET
     public String getCreateUserPage(Model model) {
         model.addAttribute("newUser", new User());
@@ -82,6 +90,21 @@ public class userController { // Model MVC code
 
         return "redirect:/admin/user"; // redirect + URL(/admin/user) -> mapping to to /admin/user while the function
                                        // "getUserPage" which is requesting to admin/user/create2(tableUser)
+    }
+
+    // @RequestMapping(value = "/admin/user/update", method = RequestMethod.POST)
+    // public String requestMethodName(Model model, @ModelAttribute("updatedUser")
+    // User nUser) {
+    // System.out.println("user updated: " + nUser);
+    // System.out.println("User is updated by the admin ##");
+    // return "redirect:/admin/user";
+    // }
+
+    @RequestMapping("/admin/user/update/{id}") // GET
+    public String getUpdateUserPage(Model model) {
+        model.addAttribute("newUser", new User()); // Phần Key của method addAttribute phải trùng với modelAttribute bên
+                                                   // trong form mà nó request tới
+        return "admin/user/update";
     }
 
 }

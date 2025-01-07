@@ -16,6 +16,8 @@ public interface UserRepository extends JpaRepository<User, Long> {
     List<User> findByEmail(String email);
 
     List<User> findByFullNameAndAddress(String fullName, String address);
+
+    User findById(long id);
 }
 
 // In theory, there is no difference between findAllBy and findOneBy and findBy

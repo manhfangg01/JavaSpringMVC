@@ -42,4 +42,8 @@ public class UserService {
         return this.userRepository.findByFullNameAndAddress(fullName, address);
     }
 
+    public User findById(long id) {
+        return this.userRepository.findById(id);
+    }
+
 }
