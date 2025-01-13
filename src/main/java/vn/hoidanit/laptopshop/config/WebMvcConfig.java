@@ -28,15 +28,10 @@ public class WebMvcConfig implements WebMvcConfigurer {
         registry.viewResolver(viewResolver());
     }
 
-        @Override
+    @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/css/**").addResourceLocations("/resources/css/");
+        registry.addResourceHandler("/js/**").addResourceLocations("/resources/js/");
     }
 
 }
-
-// # Notice that: there are two ways to configure:
-// # 1. Using application.properties
-// # 2. Using Java Configuration in config folder in
-// 01-java-spring-laptopshop-starter\src\main\java\vn\hoidanit\laptopshop
-// # you can only 1 in 2 of them

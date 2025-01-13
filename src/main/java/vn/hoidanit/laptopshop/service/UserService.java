@@ -24,7 +24,7 @@ public class UserService {
     }
 
     public User handleSaveUser(User user) {
-        User eric = this.userRepository.save(user); // Hàm save được dùng cho cả khi cập nhật và tạo mới
+        User eric = this.userRepository.save(user);
         System.out.println(eric);
         return eric;
     }
@@ -33,7 +33,8 @@ public class UserService {
         return this.userRepository.findById(id);
     }
 
-    public void handleDeleteUser(long id) {
+    public void deleteAUser(long id) {
         this.userRepository.deleteById(id);
     }
+
 }
