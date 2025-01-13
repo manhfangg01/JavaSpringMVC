@@ -1,4 +1,4 @@
-Sometime when you update data, the data that give you a object with id=0 which make the currentObject NULL and unable to update data from DB
+Sometime when you update data, the data that give you a object with id=0 which make the currentObject NULL and unable to update data from DB because almost DB count its ID from 1
 Cause 1: Check the getter and Setter of the Id, if its functions don't follow camelCase it can read id
 Cause 2: when submit data from a form you mustn't disable the form:input of Id which make sever can receive your Id when you submit.
         Solution: remove disabled="true", replace it with readonly=true and display="none"

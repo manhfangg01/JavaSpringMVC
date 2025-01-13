@@ -12,6 +12,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import vn.hoidanit.laptopshop.domain.User;
 import vn.hoidanit.laptopshop.service.UserService;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.fasterxml.jackson.annotation.JsonCreator.Mode;
 
 @Controller
 public class userController {
@@ -85,4 +89,22 @@ public class userController {
 
         return "redirect:/admin/user";
     }
+
+    @GetMapping("/admin/user/delete/{id}")
+    public String getDeletePage(Model model, @PathVariable long id) {
+        model.addAttribute("id", id);
+        // User user = new User();
+        // user.setId(id);
+        // model.addAttribute("newUser", user); // Cách 1 lấy user động
+        model.addAttribute("newUser", new User());
+        return "admin/user/delete";
+    }
+
+    @PostMapping("/admin/user/delete")
+    public String postDeleteUserPage(Model model, @ModelAttribute("newUser") User hoidanit) { // ở đây chỉ cần lấy id
+                                                                                              // thôi do là xóa
+        this.userService.handleDeleteUser(hoidanit.getId());
+        return "redirect:/admin/user";
+    }
+
 }

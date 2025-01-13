@@ -15,6 +15,8 @@ public interface UserRepository extends JpaRepository<User, Long> {
     List<User> findAll();
 
     User findById(long id); // null
+
+    void deleteById(long id);
 }
 // In theory, there is no difference between findAllBy and findOneBy and findBy
 // in the function name
